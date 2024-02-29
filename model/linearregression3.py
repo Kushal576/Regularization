@@ -7,9 +7,11 @@ import matplotlib.pyplot as plt
 import math,copy
 
 
-data=np.loadtxt("/home/acer/BCT/6th Semester/Regularization/data/houses.txt",delimiter=",",dtype=float)
-xtrain=data[:,:4]
-ytrain=data[:,4:]
+data=np.genfromtxt("/home/acer/BCT/6th Semester/Regularization/HousingData.csv",delimiter=",",dtype=float,skip_header=1)
+data=data[~np.isnan(data)]
+print(data)
+xtrain=data[:,:13]
+ytrain=data[:,13:]
 
 def gradient(x,y,w,b):
   m,n=x.shape
@@ -65,7 +67,7 @@ def zscore_normalization(x):
   x_normalized=(x-mu)/sigma
   return x_normalized
 
-w=np.zeros_like([ 0.39133535, 18.75376741, -53.36032453, -26.42131618])
+w=np.zeros(xtrain.shape[1])
 b=0
 alpha=1.0e-1
 xtrain=zscore_normalization(x=xtrain)
@@ -74,7 +76,7 @@ print(f"Before starting:")
 print(f"(w,b)=({w},{b})")
 print(f"Cost={cost_function(xtrain,ytrain,w,b)}")
 print(f"After gradient descent")
-w,b=gradient_descent(xtrain,ytrain,w,b,alpha,1000)
+w,b=gradient_descent(xtrain,ytrain,w,b,alpha,100)
 print(f"(w,b)=({w},{b})")
 print(f"Cost={cost_function(xtrain,ytrain,w,b)}")
 
@@ -84,6 +86,6 @@ for i in range(xtrain.shape[0]):
   y.append(predict(xtrain[i],w,b))
 
 fig,ax=plt.subplots()
-# ax.scatter(xtrain[:,:1],ytrain)
-ax.scatter(xtrain[:,:1],y)
+ax.scatter(xtrain[:,2:3],ytrain)
+# ax.scatter(xtrain[:,:1],y)
 plt.show()
