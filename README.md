@@ -30,7 +30,7 @@ Regularization is a core technique in machine learning for preventing overfittin
 
 
 ## Project Structure
-
+```text
 Regularization/
 ├── data/                      # Sample datasets
 ├── model/
@@ -38,8 +38,7 @@ Regularization/
 │   ├── l2_regularization.py   # L2 regularization implementation
 │   └── ...                    # Other implementation files
 ├── README.md                  # Project documentation
-
-
+```
 
 ## Usage
 
