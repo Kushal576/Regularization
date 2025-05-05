@@ -28,17 +28,17 @@ Regularization is a core technique in machine learning for preventing overfittin
 - **Overfitting:** Model fits training data too closely, performs poorly on new data.
 - **Generalization:** Model's ability to perform well on unseen data.
 
----
 
 ## Project Structure
 
 Regularization/
-├── data/ # Sample datasets
+├── data/                      # Sample datasets
 ├── model/
-├──── l1_regularization.py # L1 implementation
-├──── l2_regularization.py # L2 implementation
-├──── other implementation files
-├── README.md # Project documentation
+│   ├── l1_regularization.py   # L1 regularization implementation
+│   ├── l2_regularization.py   # L2 regularization implementation
+│   └── ...                    # Other implementation files
+├── README.md                  # Project documentation
+
 
 
 ## Usage
